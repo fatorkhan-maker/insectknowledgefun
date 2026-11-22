@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insect Knowledge &amp; Fun</title>
+<meta name="description" content="Real insect facts, reels and pictures with a little comedy. New post every day.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐞</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Nunito:wght@400;600;700&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14231A;--moss:#E9F0E3;--leaf:#2F6B3F;--pollen:#F5B700;--lady:#D7263D;--white:#fff;--muted:#4C5D51;
+--fact:#2F6B3F;--reel:#D7263D;--image:#2A5FA8;--funny:#B8860B}
+*{box-sizing:border-box}
+html{scroll-padding-top:70px}
+body{margin:0;background:var(--moss);color:var(--ink);font:400 17px/1.65 Nunito,"Noto Nastaliq Urdu",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:"Bricolage Grotesque","Noto Nastaliq Urdu",sans-serif;line-height:1.15;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pollen);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+header.top{position:sticky;top:0;z-index:5;background:var(--ink);color:var(--white)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px}
+.brand{font:800 18px "Bricolage Grotesque",sans-serif;text-decoration:none;display:flex;gap:8px;align-items:center}
+.btn{display:inline-block;border:0;border-radius:999px;background:var(--pollen);color:var(--ink);font:700 15px Nunito,sans-serif;padding:8px 18px;text-decoration:none;cursor:pointer}
+.btn.alt{background:transparent;border:2px solid currentColor}
+.hero{background:var(--ink);color:var(--white);padding:34px 0 46px}
+.hero .lead{font:600 15px Nunito;color:#B9C9BC;margin:0 0 10px}
+.hero h1{font-size:clamp(30px,6vw,52px);max-width:16ch;color:var(--white)}
+.hero .fact{font-size:19px;max-width:56ch;margin:16px 0}
+.hero .fun{display:inline-block;background:var(--pollen);color:var(--ink);font-weight:700;padding:8px 14px;border-radius:14px 14px 14px 2px;max-width:56ch}
+.hero .grid{display:grid;gap:26px;grid-template-columns:1fr}
+.hero .media{border-radius:18px;overflow:hidden;background:#20382A;min-height:200px}
+@media(min-width:800px){.hero .grid{grid-template-columns:1.1fr .9fr;align-items:center}}
+.media img,.media video,.media iframe{display:block;width:100%;border:0;aspect-ratio:4/3;object-fit:cover}
+.media iframe{aspect-ratio:16/9}
+.tile{display:grid;place-items:center;aspect-ratio:4/3;font-size:84px;background:linear-gradient(135deg,#27452F,#1B3023)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:26px 0 8px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+.chip{border:2px solid var(--ink);background:transparent;border-radius:999px;padding:5px 14px;font:700 14px Nunito;cursor:pointer;color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--white)}
+input[type=search],.f input,.f textarea,.f select{font:inherit;border:2px solid var(--ink);border-radius:12px;padding:9px 12px;background:var(--white);color:var(--ink);width:100%}
+input[type=search]{max-width:260px}
+.feed{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));padding:12px 0 40px}
+.card{background:var(--white);border-radius:6px 22px 6px 22px;overflow:hidden;border-top:6px solid var(--c,var(--leaf));display:flex;flex-direction:column}
+.card .body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:21px}
+.meta{font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:center}
+.tag{font-weight:700;color:var(--c);}
+.card p{margin:0}
+.fun-line{background:var(--moss);border-radius:12px;padding:8px 12px;font-weight:600}
+.empty{grid-column:1/-1;padding:40px 0;color:var(--muted)}
+[dir=auto]{unicode-bidi:plaintext}
+.about{background:var(--white);padding:34px 0}
+.about p{max-width:60ch;margin:10px 0 18px}
+footer{background:var(--ink);color:#B9C9BC;padding:22px 0;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+/* post maker */
+#maker{display:none;padding:30px 0 50px}
+.f{display:grid;gap:12px;max-width:620px}
+.f label{font-weight:700;display:grid;gap:4px}
+.f textarea{min-height:90px}
+#out{background:var(--ink);color:#DDE8DF;padding:14px;border-radius:12px;white-space:pre-wrap;word-break:break-word;font:14px/1.5 ui-monospace,monospace;max-width:620px;min-height:60px}
+.steps{max-width:62ch;color:var(--muted)}
+body.maker #site{display:none}body.maker #maker{display:block}
+@media(prefers-reduced-motion:no-preference){.hero h1{animation:rise .6s ease both}@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#" id="brand">🐞 <span id="siteName"></span></a>
+  <a class="btn" id="fbTop" href="#" target="_blank" rel="noopener">Follow on Facebook</a>
+</div></header>
+
+<div id="site">
+  <section class="hero"><div class="wrap">
+    <p class="lead">Latest post</p>
+    <div class="grid" id="heroGrid"></div>
+  </div></section>
+
+  <main class="wrap">
+    <div class="tools">
+      <div class="chips" id="chips" role="group" aria-label="Filter posts"></div>
+      <input type="search" id="q" placeholder="Search posts" aria-label="Search posts">
+    </div>
+    <div class="feed" id="feed" aria-live="polite"></div>
+  </main>
+
+  <section class="about"><div class="wrap">
+    <h2>About this page</h2>
+    <p id="tagline"></p>
+    <a class="btn" id="fbAbout" href="#" target="_blank" rel="noopener">See reels on Facebook</a>
+  </div></section>
+</div>
+
+<main id="maker"><div class="wrap">
+  <h1>New post maker</h1>
+  <p class="steps">Fill the form, press Copy, then paste the result at the top of the list inside <b>posts.js</b> (right after <b>const POSTS = [</b>). Save the file and upload it again to your hosting. The new post appears on the site.</p>
+  <div class="f" style="margin-top:16px">
+    <label>Title <input id="m_title" dir="auto"></label>
+    <label>Type <select id="m_type"><option value="fact">Fact</option><option value="reel">Reel</option><option value="image">Image</option><option value="funny">Funny</option></select></label>
+    <label>Date <input id="m_date" type="date"></label>
+    <label>Emoji (shown when there is no picture) <input id="m_emoji" value="🐛"></label>
+    <label>Insect fact <textarea id="m_fact" dir="auto"></textarea></label>
+    <label>Funny line <input id="m_fun" dir="auto"></label>
+    <label>Picture file or link (optional) <input id="m_image" placeholder="images/ant.jpg"></label>
+    <label>Video .mp4 or YouTube link (optional) <input id="m_video"></label>
+    <label>Facebook reel/post link (optional) <input id="m_fb"></label>
+    <button class="btn" id="copy" type="button">Copy post code</button>
+  </div>
+  <h3 style="margin:24px 0 8px">Post code</h3>
+  <div id="out"></div>
+  <p><a href="#" class="btn alt" style="color:var(--ink)">Back to website</a></p>
+</div></main>
+
+<footer><div class="wrap"><span id="foot"></span><span>Made with curiosity and a magnifying glass</span></div></footer>
+
+<script src="posts.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const TYPES={all:"All",fact:"Facts",reel:"Reels",image:"Images",funny:"Funny"};
+const COLORS={fact:"var(--fact)",reel:"var(--reel)",image:"var(--image)",funny:"var(--funny)"};
+let filter="all",query="";
+const posts=[...POSTS].sort((a,b)=>b.date.localeCompare(a.date));
+
+function el(tag,props={},kids=[]){const e=document.createElement(tag);
+  for(const k in props){if(k==="text")e.textContent=props[k];else if(k==="class")e.className=props[k];else e.setAttribute(k,props[k]);}
+  kids.forEach(c=>c&&e.append(c));return e;}
+function fmt(d){try{return new Date(d+"T00:00:00").toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"})}catch(e){return d}}
+function ytId(u){const m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);return m&&m[1]}
+function media(p){
+  const box=el("div",{class:"media"});
+  const v=p.video||"";
+  if(/\.mp4($|\?)/i.test(v)){box.append(el("video",{src:v,controls:"",playsinline:"",preload:"metadata"}))}
+  else if(ytId(v)){box.append(el("iframe",{src:"https://www.youtube.com/embed/"+ytId(v),title:p.title,allowfullscreen:"",loading:"lazy"}))}
+  else if(p.image){box.append(el("img",{src:p.image,alt:p.title,loading:"lazy"}))}
+  else{box.append(el("div",{class:"tile",text:p.emoji||"🐛","aria-hidden":"true"}))}
+  return box;}
+function fbLink(p){return p.fb?el("a",{class:"btn alt",href:p.fb,target:"_blank",rel:"noopener",text:"Watch on Facebook",style:"color:inherit;margin-top:6px;align-self:flex-start"}):null}
+
+function renderHero(){
+  const g=$("#heroGrid");g.replaceChildren();
+  const p=posts[0];if(!p){g.append(el("h1",{text:"First post coming soon"}));return;}
+  const txt=el("div",{},[
+    el("h1",{text:p.title,dir:"auto"}),
+    el("p",{class:"fact",text:p.fact,dir:"auto"}),
+    p.fun?el("div",{class:"fun",text:p.fun,dir:"auto"}):null,
+    fbLink(p)?el("div",{style:"margin-top:14px;color:#fff"},[fbLink(p)]):null]);
+  g.append(txt,media(p));}
+
+function renderFeed(){
+  const f=$("#feed");f.replaceChildren();
+  const list=posts.slice(1).filter(p=>(filter==="all"||p.type===filter)&&
+    (p.title+" "+p.fact+" "+(p.fun||"")).toLowerCase().includes(query));
+  if(!list.length){f.append(el("p",{class:"empty",text:"No posts match. Try another filter or search word."}));return;}
+  list.forEach(p=>{
+    const c=el("article",{class:"card",style:"--c:"+(COLORS[p.type]||"var(--leaf)")},[
+      media(p),
+      el("div",{class:"body"},[
+        el("div",{class:"meta"},[el("span",{class:"tag",text:TYPES[p.type]||"Post"}),el("span",{text:fmt(p.date)})]),
+        el("h3",{text:p.title,dir:"auto"}),
+        el("p",{text:p.fact,dir:"auto"}),
+        p.fun?el("p",{class:"fun-line",text:p.fun,dir:"auto"}):null,
+        fbLink(p)])]);
+    f.append(c);});}
+
+function renderChips(){
+  const c=$("#chips");c.replaceChildren();
+  Object.keys(TYPES).forEach(k=>{
+    const b=el("button",{class:"chip",type:"button","aria-pressed":String(k===filter),text:TYPES[k]});
+    b.onclick=()=>{filter=k;renderChips();renderFeed();};c.append(b);});}
+
+$("#q").addEventListener("input",e=>{query=e.target.value.trim().toLowerCase();renderFeed();});
+$("#siteName").textContent=SITE.name;$("#tagline").textContent=SITE.tagline+" A new post goes up every day, with facts from real insect science and a bit of fun on the side.";
+["#fbTop","#fbAbout"].forEach(s=>$(s).href=SITE.facebook);
+$("#foot").textContent="© "+new Date().getFullYear()+" "+SITE.name;
+renderHero();renderChips();renderFeed();
+
+/* post maker */
+const ids=["title","type","date","emoji","fact","fun","image","video","fb"];
+function q(s){return JSON.stringify(s)}
+function build(){
+  const v={};ids.forEach(i=>v[i]=$("#m_"+i).value.trim());
+  let s="  {\n    title: "+q(v.title)+",\n    type: "+q(v.type)+", date: "+q(v.date)+", emoji: "+q(v.emoji)+",\n    fact: "+q(v.fact)+",\n    fun: "+q(v.fun);
+  ["image","video","fb"].forEach(k=>{if(v[k])s+=",\n    "+k+": "+q(v[k])});
+  $("#out").textContent=s+"\n  },";}
+ids.forEach(i=>$("#m_"+i).addEventListener("input",build));
+$("#m_date").value=new Date().toISOString().slice(0,10);build();
+$("#copy").onclick=async()=>{try{await navigator.clipboard.writeText($("#out").textContent);$("#copy").textContent="Copied"}catch(e){$("#copy").textContent="Select the code and copy it"}setTimeout(()=>$("#copy").textContent="Copy post code",2000)};
+function route(){document.body.classList.toggle("maker",location.hash==="#post-maker");window.scrollTo(0,0)}
+addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
